@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Cucumber</title>
+	<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+	<style>
+.cucumber-react h1, .cucumber-react h2, .cucumber-react h3 {
+  padding: 0;
+  margin-top: 0.3em;
+  margin-bottom: 0;
+  display: inline-block;
+}
+.cucumber-react a {
+  color: inherit;
+}
+.cucumber-react ol {
+  list-style-type: none;
+  padding-left: 10px;
+}
+.cucumber-react section {
+  margin-bottom: 1em;
+}
+.cucumber-react .status-passed {
+  color: #2CB14A;
+}
+.cucumber-react .status-skipped {
+  color: #00A0CC;
+}
+.cucumber-react .status-pending {
+  color: #FFAD33;
+}
+.cucumber-react .status-undefined {
+  color: #FFAD33;
+}
+.cucumber-react .status-ambiguous {
+  color: #F4EBFD;
+}
+.cucumber-react .status-failed {
+  color: #BB0000;
+}
+.cucumber-react .status-unknown {
+  color: #B6BECB;
+}
+.cucumber-react .data-table {
+  border-collapse: collapse;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+.cucumber-react .data-table th {
+  border: 1px solid #4B5662;
+  padding: 0.3em;
+}
+.cucumber-react .data-table td {
+  border: 1px solid #4B5662;
+  padding: 0.3em;
+}
+.cucumber-react .data-table td__status {
+  padding: 0.5em 3px 3px 3px;
+}
+.cucumber-react .data-table td__step {
+  flex-grow: 1;
+}
+.cucumber-react .examples-table {
+  border-collapse: collapse;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+.cucumber-react .examples-table th {
+  padding: 0.3em;
+}
+.cucumber-react .examples-table th + th {
+  border: 1px solid #4B5662;
+}
+.cucumber-react .examples-table td {
+  padding: 0.3em;
+}
+.cucumber-react .examples-table td + td {
+  border: 1px solid #4B5662;
+}
+.cucumber-react .examples-table td + td__status {
+  padding: 0.5em 3px 3px 3px;
+}
+.cucumber-react .examples-table td + td__step {
+  flex-grow: 1;
+}
+.cucumber-react .gherkin-document-list {
+  font: 14px "Open Sans", sans-serif;
+  color: #161C24;
+  background: #fff;
+  overflow-x: hidden;
+}
+.cucumber-react .indent {
+  margin-left: 1em;
+}
+.cucumber-react .keyword {
+  font-weight: bold;
+}
+.cucumber-react .step {
+  padding: 0.1em;
+}
+.cucumber-react .step-text {
+  font-weight: normal;
+}
+.cucumber-react .step-param {
+  font-weight: normal;
+}
+.cucumber-react .step-container {
+  display: flex;
+}
+.cucumber-react .step-container__step {
+  flex-grow: 1;
+}
+.cucumber-react .text_status_icon_container {
+  padding-top: 0.35em;
+  padding-right: 0.5em;
+}
+.cucumber-react .error-message {
+  padding: 0.5em;
+  margin: 0;
+  overflow: scroll;
+}
+.cucumber-react .tag-list {
+  padding: 0;
+  margin-bottom: 0;
+}
+.cucumber-react .tag {
+  display: inline;
+  list-style-type: none;
+  padding: 4px 8px 4px 8px;
+  margin-right: 6px;
+  background-color: #FFFFFF;
+  border-radius: 6px;
+}
+.cucumber-react p.cucumber-no-results {
+  font: 14px "Open Sans", sans-serif;
+}
+
+.anchored-link {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-top: 0.3em;
+}
+.anchored-link a {
+  opacity: 0;
+  transition: all 0.35s ease-in-out;
+  position: absolute;
+  left: -20px;
+  display: flex;
+  align-items: center;
+}
+.anchored-link:hover a {
+  opacity: 1;
+  width: max-content;
+  transition: all 0.35s ease-in-out;
+}
+.anchored-link > * {
+  height: 100%;
+  margin-top: 0px;
+}
+.anchored-link h1, .anchored-link h2, .anchored-link h3 {
+  margin-top: 0px;
+}
+.anchored-link .attachment {
+  background-color: #ebebeb;
+  padding: 0.5em;
+}
+.anchored-link .attachment .attachment-icon {
+  margin-right: 0.5em;
+}
+.anchored-link .attachment-image {
+  margin-top: 1em;
+}
+.anchored-link .highlight mark {
+  background-color: yellow;
+}
+.anchored-link .cucumberFeature {
+  padding-left: 10px;
+}
+
+.cucumber-report-header {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  font: 11px "Open Sans", sans-serif;
+  margin-bottom: 1em;
+}
+.cucumber-report-header > * {
+  padding: 1em;
+}
+.cucumber-report-header .cucumber-status-filter {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.cucumber-report-header .cucumber-status-filter table {
+  width: 100%;
+}
+.cucumber-report-header .cucumber-execution-data {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.cucumber-report-header .cucumber-search-bar {
+  border-right: 0;
+}
+.cucumber-report-header .cucumber-search-bar form.cucumber-search-bar-search {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 9fr 1fr;
+}
+.cucumber-report-header .cucumber-search-bar form.cucumber-search-bar-search input {
+  padding: 0.4em;
+  border-radius: 0;
+}
+.cucumber-report-header .cucumber-search-bar form.cucumber-search-bar-search button {
+  height: 2.2em;
+  padding-left: 0.6em;
+  padding-right: 0.6em;
+}
+.cucumber-report-header .cucumber-search-bar p.help {
+  font-size: 80%;
+}
+.cucumber-report-header .cucumber-search-bar form.cucumber-search-bar-filter ul {
+  display: inline;
+}
+.cucumber-report-header .cucumber-search-bar form.cucumber-search-bar-filter ul li {
+  list-style-type: none;
+  display: inline-block;
+}
+.cucumber-report-header .cucumber-search-bar form.cucumber-search-bar-filter ul li input {
+  display: inline-block;
+  width: auto;
+  height: 0.6em;
+}
+.cucumber-report-header .cucumber-search-bar form.cucumber-search-bar-filter ul li label {
+  padding-right: 1em;
+}
+
+@media only screen and (min-width: 600px) {
+  .cucumber-report-header {
+    grid-template-columns: 1fr 1fr;
+  }
+  .cucumber-report-header .cucumber-status-filter {
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  .cucumber-report-header .cucumber-search-bar {
+    grid-column: 1/-1;
+  }
+}
+@media only screen and (min-width: 992px) {
+  .cucumber-report-header {
+    grid-template-columns: 1fr 1fr 2fr;
+  }
+  .cucumber-report-header .cucumber-status-filter {
+    border-bottom: 0;
+  }
+  .cucumber-report-header .cucumber-execution-data {
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 0;
+  }
+  .cucumber-report-header .cucumber-search-bar {
+    grid-column: auto;
+  }
+}
+.accordion {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 2px;
+}
+
+.accordion__item + .accordion__item {
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.accordion__button {
+    background-color: #f4f4f4;
+    color: #444;
+    cursor: pointer;
+    padding: 10px;
+    width: 100%;
+    text-align: left;
+    border: none;
+}
+
+.accordion__button:hover {
+    background-color: #ddd;
+}
+
+.accordion__button:before {
+    display: inline-block;
+    content: '';
+    height: 10px;
+    width: 10px;
+    margin-right: 12px;
+    border-bottom: 2px solid currentColor;
+    border-right: 2px solid currentColor;
+    transform: rotate(-45deg);
+}
+
+.accordion__button[aria-expanded='true']::before,
+.accordion__button[aria-selected='true']::before {
+    transform: rotate(45deg);
+}
+
+.accordion__panel {
+    padding: 20px;
+    animation: fadein 0.35s ease-in;
+}
+
+	</style>
+</head>
+<body>
+<div id="content">
+</div>
+<script>
+window.CUCUMBER_MESSAGES = [{"meta":{"protocolVersion":"12.4.0","implementation":{"name":"cucumber-jvm","version":"6.4.0"},"runtime":{"name":"Oracle Corporation","version":"14.0.1"},"os":{"name":"Windows 10"},"cpu":{"name":"amd64"}}},{"testRunStarted":{"timestamp":{"seconds":"1597331016","nanos":505888500}}},{"source":{"uri":"file:///D:/Workspace/java/Qstodio/src/test/resources/Feature/homePage.feature","data":"@Functionality\r\nFeature: Test HomePage Functionality\r\n# Please set correct username and password at line 7 and 8\r\n  Background:\r\n    Given Web Browser is open\r\n    And User opens the url \"family.qustodio.com/parents-app\"\r\n    And User set \"navaleshweta@ymail.com\" to the inputfield \"username\"\r\n    And User set \"qstudio22\" to the inputfield \"password\"\r\n    And User click on the element \".Login__button--container button\"\r\n\r\n  Scenario: Check Menu Options\r\n    Given there is an element \".Header\" on the page\r\n    And User waits on element \".Header__title\" for 10000ms to be visible\r\n    And User expect that element \".Header__title\" matches the text \"Your Family\"\r\n    When User click on the element \"#root \u003e div \u003e div \u003e div \u003e div.DesktopLayout__content-container \u003e div.DesktopLayout__sidebar \u003e div \u003e div \u003e ul \u003e li:nth-child(2)\"\r\n    Then User expect that element \"#root \u003e div \u003e div \u003e div \u003e div.DesktopLayout__content-container \u003e div.DesktopLayout__content \u003e div \u003e div.Header__wrapper \u003e div \u003e div.Header__title\" matches the text \"Your devices\"\r\n    And User click on the element \"#root \u003e div \u003e div \u003e div \u003e div.DesktopLayout__content-container \u003e div.DesktopLayout__sidebar \u003e div \u003e div \u003e ul \u003e li:nth-child(3)\"\r\n    And User expect that element \"#root \u003e div \u003e div \u003e div \u003e div.DesktopLayout__content-container \u003e div.DesktopLayout__content \u003e div \u003e div.Header__wrapper \u003e div \u003e div.Header__title\" matches the text \"Your account\"\r\n\r\n  Scenario: Logout\r\n    Given there is an element \".Header\" on the page\r\n    And User waits on element \".Header__title\" for 10000ms to be visible\r\n    When User click on the element \"#root \u003e div \u003e div \u003e div \u003e div.DesktopLayout__content-container \u003e div.DesktopLayout__sidebar \u003e div \u003e div \u003e ul \u003e li:nth-child(5)\"\r\n    Then User expect that element \".Login__header\" matches the text \"Welcome to Qustodio\"\r\n\r\n","mediaType":"text/x.cucumber.gherkin+plain"}},{"gherkinDocument":{"uri":"file:///D:/Workspace/java/Qstodio/src/test/resources/Feature/homePage.feature","feature":{"location":{"line":2,"column":1},"tags":[{"location":{"line":1,"column":1},"name":"@Functionality","id":"b3608157-6f5b-4a34-819c-62e63aa8af57"}],"language":"en","keyword":"Feature","name":"Test HomePage Functionality","children":[{"background":{"location":{"line":4,"column":3},"keyword":"Background","steps":[{"location":{"line":5,"column":5},"keyword":"Given ","text":"Web Browser is open","id":"97861a39-72a1-423f-b936-5d05056fa392"},{"location":{"line":6,"column":5},"keyword":"And ","text":"User opens the url \"family.qustodio.com/parents-app\"","id":"844bc455-053a-473e-99f5-262e834b140e"},{"location":{"line":7,"column":5},"keyword":"And ","text":"User set \"navaleshweta@ymail.com\" to the inputfield \"username\"","id":"2f91022d-cff9-4dc8-8d66-51e6f4593e9b"},{"location":{"line":8,"column":5},"keyword":"And ","text":"User set \"qstudio22\" to the inputfield \"password\"","id":"74d6c9ab-d5ba-43ee-9246-f07ae1527bc3"},{"location":{"line":9,"column":5},"keyword":"And ","text":"User click on the element \".Login__button--container button\"","id":"1d76f02b-9f37-4b24-ac97-d4e13b46795e"}],"id":"9fe994fe-b9f2-40b5-b147-74178071cb6f"}},{"scenario":{"location":{"line":11,"column":3},"keyword":"Scenario","name":"Check Menu Options","steps":[{"location":{"line":12,"column":5},"keyword":"Given ","text":"there is an element \".Header\" on the page","id":"47e9057c-3e23-41c2-8e1b-f8bc00d01a4d"},{"location":{"line":13,"column":5},"keyword":"And ","text":"User waits on element \".Header__title\" for 10000ms to be visible","id":"0677f9ef-c0e5-4cf6-bc44-e7404e3a41fe"},{"location":{"line":14,"column":5},"keyword":"And ","text":"User expect that element \".Header__title\" matches the text \"Your Family\"","id":"d63bf385-e7ad-4853-a273-94ce7fba2ea1"},{"location":{"line":15,"column":5},"keyword":"When ","text":"User click on the element \"#root \u003e div \u003e div \u003e div \u003e div.DesktopLayout__content-container \u003e div.DesktopLayout__sidebar \u003e div \u003e div \u003e ul \u003e li:nth-child(2)\"","id":"e2d3bf94-bf94-4c64-9736-8fb2bfe7c0bc"},{"location":{"line":16,"column":5},"keyword":"Then ","text":"User expect that element \"#root \u003e div \u003e div \u003e div \u003e div.DesktopLayout__content-container \u003e div.DesktopLayout__content \u003e div \u003e div.Header__wrapper \u003e div \u003e div.Header__title\" matches the text \"Your devices\"","id":"a054befb-3dcd-4336-aa5d-8d110abc0643"},{"location":{"line":17,"column":5},"keyword":"And ","text":"User click on the element \"#root \u003e div \u003e div \u003e div \u003e div.DesktopLayout__content-container \u003e div.DesktopLayout__sidebar \u003e div \u003e div \u003e ul \u003e li:nth-child(3)\"","id":"e71cb1ac-31b5-4feb-b6a2-d9cbea86fd42"},{"location":{"line":18,"column":5},"keyword":"And ","text":"User expect that element \"#root \u003e div \u003e div \u003e div \u003e div.DesktopLayout__content-container \u003e div.DesktopLayout__content \u003e div \u003e div.Header__wrapper \u003e div \u003e div.Header__title\" matches the text \"Your account\"","id":"4e532ea4-fe25-4676-ba5d-001075f31a9c"}],"id":"3588978c-6acb-4f68-81de-cf082480295e"}},{"scenario":{"location":{"line":20,"column":3},"keyword":"Scenario","name":"Logout","steps":[{"location":{"line":21,"column":5},"keyword":"Given ","text":"there is an element \".Header\" on the page","id":"eb3fba87-5a62-4473-816c-fc6ebdbe09be"},{"location":{"line":22,"column":5},"keyword":"And ","text":"User waits on element \".Header__title\" for 10000ms to be visible","id":"cdd8b5ab-7a6b-4cc4-96bb-baccc1256f9c"},{"location":{"line":23,"column":5},"keyword":"When ","text":"User click on the element \"#root \u003e div \u003e div \u003e div \u003e div.DesktopLayout__content-container \u003e div.DesktopLayout__sidebar \u003e div \u003e div \u003e ul \u003e li:nth-child(5)\"","id":"8cb8d0ac-fba9-445b-baad-ba863dc59d80"},{"location":{"line":24,"column":5},"keyword":"Then ","text":"User expect that element \".Login__header\" matches the text \"Welcome to Qustodio\"","id":"95ee058b-d934-4d4d-a8a9-1b204953e124"}],"id":"f8681f8f-e453-49a8-9b81-9201dd28dbc7"}}]},"comments":[{"location":{"line":3,"column":1},"text":"# Please set correct username and password at line 7 and 8"}]}},{"pickle":{"id":"6bde4b4e-7cfb-45a8-ade8-5987fcf43873","uri":"file:///D:/Workspace/java/Qstodio/src/test/resources/Feature/homePage.feature","name":"Check Menu Options","language":"en","steps":[{"text":"Web Browser is open","id":"a2868270-682d-40ce-8a13-edd38b794cf6","astNodeIds":["97861a39-72a1-423f-b936-5d05056fa392"]},{"text":"User opens the url \"family.qustodio.com/parents-app\"","id":"4ede8f2f-2d74-48b8-8f00-291df408fb0e","astNodeIds":["844bc455-053a-473e-99f5-262e834b140e"]},{"text":"User set \"navaleshweta@ymail.com\" to the inputfield \"username\"","id":"c4b65b56-0906-4d64-8106-08b2e72444bb","astNodeIds":["2f91022d-cff9-4dc8-8d66-51e6f4593e9b"]},{"text":"User set \"qstudio22\" to the inputfield \"password\"","id":"f9fdd210-974d-4792-b8dd-70d72a1af5ba","astNodeIds":["74d6c9ab-d5ba-43ee-9246-f07ae1527bc3"]},{"text":"User click on the element \".Login__button--container button\"","id":"748d5c5a-edd4-4f2b-8a20-fdb1fd8a7673","astNodeIds":["1d76f02b-9f37-4b24-ac97-d4e13b46795e"]},{"text":"there is an element \".Header\" on the page","id":"ed32df51-5901-4e7a-8116-89b307aa21ed","astNodeIds":["47e9057c-3e23-41c2-8e1b-f8bc00d01a4d"]},{"text":"User waits on element \".Header__title\" for 10000ms to be visible","id":"cc60cdba-4dba-41b7-a1e9-ea9bb911ad43","astNodeIds":["0677f9ef-c0e5-4cf6-bc44-e7404e3a41fe"]},{"text":"User expect that element \".Header__title\" matches the text \"Your Family\"","id":"0673e0dd-8172-4e07-b6a1-b669fd2335e4","astNodeIds":["d63bf385-e7ad-4853-a273-94ce7fba2ea1"]},{"text":"User click on the element \"#root \u003e div \u003e div \u003e div \u003e div.DesktopLayout__content-container \u003e div.DesktopLayout__sidebar \u003e div \u003e div \u003e ul \u003e li:nth-child(2)\"","id":"a8664c8e-5d39-4984-9e0c-14b3be3891ed","astNodeIds":["e2d3bf94-bf94-4c64-9736-8fb2bfe7c0bc"]},{"text":"User expect that element \"#root \u003e div \u003e div \u003e div \u003e div.DesktopLayout__content-container \u003e div.DesktopLayout__content \u003e div \u003e div.Header__wrapper \u003e div \u003e div.Header__title\" matches the text \"Your devices\"","id":"073ff711-b4fc-4f6d-9ea6-8dbcaaa42ac2","astNodeIds":["a054befb-3dcd-4336-aa5d-8d110abc0643"]},{"text":"User click on the element \"#root \u003e div \u003e div \u003e div \u003e div.DesktopLayout__content-container \u003e div.DesktopLayout__sidebar \u003e div \u003e div \u003e ul \u003e li:nth-child(3)\"","id":"00ac379c-3e3e-4616-af63-d915cefd2115","astNodeIds":["e71cb1ac-31b5-4feb-b6a2-d9cbea86fd42"]},{"text":"User expect that element \"#root \u003e div \u003e div \u003e div \u003e div.DesktopLayout__content-container \u003e div.DesktopLayout__content \u003e div \u003e div.Header__wrapper \u003e div \u003e div.Header__title\" matches the text \"Your account\"","id":"a67a7c15-5355-433b-b9ae-4a29de6c6595","astNodeIds":["4e532ea4-fe25-4676-ba5d-001075f31a9c"]}],"tags":[{"name":"@Functionality","astNodeId":"b3608157-6f5b-4a34-819c-62e63aa8af57"}],"astNodeIds":["3588978c-6acb-4f68-81de-cf082480295e"]}},{"pickle":{"id":"7adb2f2a-0966-475c-8182-f3ac70d26160","uri":"file:///D:/Workspace/java/Qstodio/src/test/resources/Feature/homePage.feature","name":"Logout","language":"en","steps":[{"text":"Web Browser is open","id":"4a45fa58-105a-489b-abb2-61f29f26f8fa","astNodeIds":["97861a39-72a1-423f-b936-5d05056fa392"]},{"text":"User opens the url \"family.qustodio.com/parents-app\"","id":"03b8276c-2b0a-45da-b3b0-9f3e61812cc4","astNodeIds":["844bc455-053a-473e-99f5-262e834b140e"]},{"text":"User set \"navaleshweta@ymail.com\" to the inputfield \"username\"","id":"d4d6c49b-c75c-44f9-85c2-d17d2c011d85","astNodeIds":["2f91022d-cff9-4dc8-8d66-51e6f4593e9b"]},{"text":"User set \"qstudio22\" to the inputfield \"password\"","id":"b62333f6-8ccd-4cec-ba4a-d3d1addb1f55","astNodeIds":["74d6c9ab-d5ba-43ee-9246-f07ae1527bc3"]},{"text":"User click on the element \".Login__button--container button\"","id":"70cf1f43-1711-43cb-b67d-d30abb562e96","astNodeIds":["1d76f02b-9f37-4b24-ac97-d4e13b46795e"]},{"text":"there is an element \".Header\" on the page","id":"c9f5b203-507a-442a-8108-654384366dad","astNodeIds":["eb3fba87-5a62-4473-816c-fc6ebdbe09be"]},{"text":"User waits on element \".Header__title\" for 10000ms to be visible","id":"17bc590a-320d-4f29-9d15-6d5ae0e6bbe9","astNodeIds":["cdd8b5ab-7a6b-4cc4-96bb-baccc1256f9c"]},{"text":"User click on the element \"#root \u003e div \u003e div \u003e div \u003e div.DesktopLayout__content-container \u003e div.DesktopLayout__sidebar \u003e div \u003e div \u003e ul \u003e li:nth-child(5)\"","id":"8dcc8900-debe-401b-b9a6-56ba11842f9e","astNodeIds":["8cb8d0ac-fba9-445b-baad-ba863dc59d80"]},{"text":"User expect that element \".Login__header\" matches the text \"Welcome to Qustodio\"","id":"2d833564-9161-43bd-a13e-eb6c0bf94d67","astNodeIds":["95ee058b-d934-4d4d-a8a9-1b204953e124"]}],"tags":[{"name":"@Functionality","astNodeId":"b3608157-6f5b-4a34-819c-62e63aa8af57"}],"astNodeIds":["f8681f8f-e453-49a8-9b81-9201dd28dbc7"]}},{"source":{"uri":"file:///D:/Workspace/java/Qstodio/src/test/resources/Feature/login.feature","data":"@Functionality\r\nFeature: Test Login Functionality\r\n\r\n  Background:\r\n    Given Web Browser is open\r\n    And User opens the url \"family.qustodio.com/parents-app\"\r\n\r\n\r\n  Scenario: Load login page and verify recover password link\r\n    Given User waits on element \".Login__logo\" for 10000ms to be visible\r\n    And User expect that element \"login\" does exist on the page\r\n    When User click on the element \".Login__passwordLink\"\r\n    And User waits on element \".c-btn c-btn--block c-btn--brand js-form-button\" for 10000ms to be visible\r\n    Then User expect that element \".c-btn c-btn--block c-btn--brand js-form-button\" matches the text \"Recover password\"\r\n\r\n#    Please enter correct username and password\r\n  Scenario: Login with a valid user\r\n    Given User expect that element \"login\" does exist on the page\r\n    And User set \"navaleshweta@ymail.com\" to the inputfield \"username\"\r\n    And User set \"qstudio22\" to the inputfield \"password\"\r\n    When User click on the element \".Login__button--container button\"\r\n    And User waits on element \".Header__title\" for 10000ms to be visible\r\n    Then User expect that element \".Header__title\" matches the text \"Your Family\"\r\n\r\n  Scenario Outline: Login is \u003cSuccessful/Unsuccessful\u003e with \u003cValid/Invalid_ID\u003e \u0026 \u003cValid/Invalid_Password\u003e\r\n    Given User set \"\u003cUsername\u003e\" to the inputfield \"username\"\r\n    And User set \"\u003cPassword\u003e\" to the inputfield \"password\"\r\n    When User click on the element \".Login__button--container button\"\r\n    Then User is  able to login \"\u003cSuccessfully/Unsuccessfully\u003e\"\r\n    And User waits on element \"\u003ctitle\u003e\" for 10000ms to be visible\r\n    And User expect that element \"\u003ctitle\u003e\" matches the text \"\u003ctext\u003e\"\r\n\r\n    Examples:\r\n      |Successfully/Unsuccessfully |Username               |Password |Valid/Invalid_ID|Valid/Invalid_Password|   title         |    text              |\r\n      |Successfully                |navaleshweta@ymail.com |qstudio22|Valid_Username  |Valid_Password        | .Header__title  |     Your Family      |\r\n      |Unsuccessfully              |      invalid          | invalid |Invalid_Username|Invalid_Password      | .Login__header  | Welcome to Qustodio  |\r\n      |Unsuccessfully              |        valid          |qstudio22|Invalid_Username|valid_Password        | .Login__header  | Welcome to Qustodio  |\r\n      |Unsuccessfully              |softwareqaeng@gmail.com| invalid |Valid_Username  |Invalid_Password      | .Login__header  | Welcome to Qustodio  |\r\n      |Unsuccessfully              |                       |         |   Empty        |   Empty              | .Login__header  | Welcome to Qustodio  |\r\n\r\n  Scenario Outline: Login screen has username, password \u0026 Login fields present\r\n    When User waits on element \".Login__logo\" for 10000ms to be visible\r\n    Then User has \"\u003cfield\u003e\" visible\r\n\r\n    Examples:\r\n      |  field       |\r\n      |  username    |\r\n      |   password   |\r\n\r\n  Scenario: Login screen has Login button present\r\n    When User waits on element \".Login__logo\" for 10000ms to be visible\r\n    Then User expect that element \"login\" does exist on the page\r\n\r\n","mediaType":"text/x.cucumber.gherkin+plain"}},{"gherkinDocument":{"uri":"file:///D:/Workspace/java/Qstodio/src/test/resources/Feature/login.feature","feature":{"location":{"line":2,"column":1},"tags":[{"location":{"line":1,"column":1},"name":"@Functionality","id":"f6b5e5c1-7a75-484d-899e-ebbb2ea4e8e7"}],"language":"en","keyword":"Feature","name":"Test Login Functionality","children":[{"background":{"location":{"line":4,"column":3},"keyword":"Background","steps":[{"location":{"line":5,"column":5},"keyword":"Given ","text":"Web Browser is open","id":"5e89e7dd-f80d-48fc-9494-5e883f742b1d"},{"location":{"line":6,"column":5},"keyword":"And ","text":"User opens the url \"family.qustodio.com/parents-app\"","id":"a81fa27f-78bf-429d-8c1d-96b1d1edc015"}],"id":"bc9c4298-042d-41e2-9956-fd6fac9fe049"}},{"scenario":{"location":{"line":9,"column":3},"keyword":"Scenario","name":"Load login page and verify recover password link","steps":[{"location":{"line":10,"column":5},"keyword":"Given ","text":"User waits on element \".Login__logo\" for 10000ms to be visible","id":"da21776f-bbb2-4655-b8cd-fcbf80e1e607"},{"location":{"line":11,"column":5},"keyword":"And ","text":"User expect that element \"login\" does exist on the page","id":"9dbd02f9-12e6-4592-90e8-68d9f9bd6c6a"},{"location":{"line":12,"column":5},"keyword":"When ","text":"User click on the element \".Login__passwordLink\"","id":"88c59ff8-775f-4c00-96b0-180021a88857"},{"location":{"line":13,"column":5},"keyword":"And ","text":"User waits on element \".c-btn c-btn--block c-btn--brand js-form-button\" for 10000ms to be visible","id":"573f91a7-f7cc-4b67-90c8-bfdbf0247dcc"},{"location":{"line":14,"column":5},"keyword":"Then ","text":"User expect that element \".c-btn c-btn--block c-btn--brand js-form-button\" matches the text \"Recover password\"","id":"fda32d75-5aa1-4e57-907d-4b61b0b3295a"}],"id":"d2ffbbcb-4767-4a6b-88ea-5094ffafb994"}},{"scenario":{"location":{"line":17,"column":3},"keyword":"Scenario","name":"Login with a valid user","steps":[{"location":{"line":18,"column":5},"keyword":"Given ","text":"User expect that element \"login\" does exist on the page","id":"399ba73e-3735-41f7-b2e9-71b454039a1f"},{"location":{"line":19,"column":5},"keyword":"And ","text":"User set \"navaleshweta@ymail.com\" to the inputfield \"username\"","id":"61cc5291-e849-41a7-be19-1e8c02777ba1"},{"location":{"line":20,"column":5},"keyword":"And ","text":"User set \"qstudio22\" to the inputfield \"password\"","id":"28940152-871b-4e5e-91cf-f3b6475ddeba"},{"location":{"line":21,"column":5},"keyword":"When ","text":"User click on the element \".Login__button--container button\"","id":"02b19fb8-9817-42b3-9261-5db6fc3e56ba"},{"location":{"line":22,"column":5},"keyword":"And ","text":"User waits on element \".Header__title\" for 10000ms to be visible","id":"f7af1240-2d20-4d40-b2c3-8d1f11175d1a"},{"location":{"line":23,"column":5},"keyword":"Then ","text":"User expect that element \".Header__title\" matches the text \"Your Family\"","id":"5a22047d-47f9-498c-b85f-9e6a2a018d48"}],"id":"9dfc94f6-b20e-48df-820a-b5cb77ced50f"}},{"scenario":{"location":{"line":25,"column":3},"keyword":"Scenario Outline","name":"Login is \u003cSuccessful/Unsuccessful\u003e with \u003cValid/Invalid_ID\u003e \u0026 \u003cValid/Invalid_Password\u003e","steps":[{"location":{"line":26,"column":5},"keyword":"Given ","text":"User set \"\u003cUsername\u003e\" to the inputfield \"username\"","id":"6c02a61b-af14-4789-89df-17e2e1fda9ea"},{"location":{"line":27,"column":5},"keyword":"And ","text":"User set \"\u003cPassword\u003e\" to the inputfield \"password\"","id":"3d39d26a-2ec8-43e2-8525-ec21a516b666"},{"location":{"line":28,"column":5},"keyword":"When ","text":"User click on the element \".Login__button--container button\"","id":"dd588426-db5f-46af-a398-5212c95cdf9a"},{"location":{"line":29,"column":5},"keyword":"Then ","text":"User is  able to login \"\u003cSuccessfully/Unsuccessfully\u003e\"","id":"15daca65-642d-42c1-98f6-0e4284176580"},{"location":{"line":30,"column":5},"keyword":"And ","text":"User waits on element \"\u003ctitle\u003e\" for 10000ms to be visible","id":"64dfecec-6fa5-400c-ad50-f8ee720e81ef"},{"location":{"line":31,"column":5},"keyword":"And ","text":"User expect that element \"\u003ctitle\u003e\" matches the text \"\u003ctext\u003e\"","id":"10e3311c-b968-4f2c-9acc-5333cc0bc7fd"}],"examples":[{"location":{"line":33,"column":5},"keyword":"Examples","tableHeader":{"location":{"line":34,"column":7},"cells":[{"location":{"line":34,"column":8},"value":"Successfully/Unsuccessfully"},{"location":{"line":34,"column":37},"value":"Username"},{"location":{"line":34,"column":61},"value":"Password"},{"location":{"line":34,"column":71},"value":"Valid/Invalid_ID"},{"location":{"line":34,"column":88},"value":"Valid/Invalid_Password"},{"location":{"line":34,"column":114},"value":"title"},{"location":{"line":34,"column":133},"value":"text"}],"id":"1f395a58-1704-4fb2-bf0e-d33f53b7b17c"},"tableBody":[{"location":{"line":35,"column":7},"cells":[{"location":{"line":35,"column":8},"value":"Successfully"},{"location":{"line":35,"column":37},"value":"navaleshweta@ymail.com"},{"location":{"line":35,"column":61},"value":"qstudio22"},{"location":{"line":35,"column":71},"value":"Valid_Username"},{"location":{"line":35,"column":88},"value":"Valid_Password"},{"location":{"line":35,"column":112},"value":".Header__title"},{"location":{"line":35,"column":134},"value":"Your Family"}],"id":"779970f8-ac1b-4dea-a835-0606eac5c210"},{"location":{"line":36,"column":7},"cells":[{"location":{"line":36,"column":8},"value":"Unsuccessfully"},{"location":{"line":36,"column":43},"value":"invalid"},{"location":{"line":36,"column":62},"value":"invalid"},{"location":{"line":36,"column":71},"value":"Invalid_Username"},{"location":{"line":36,"column":88},"value":"Invalid_Password"},{"location":{"line":36,"column":112},"value":".Login__header"},{"location":{"line":36,"column":130},"value":"Welcome to Qustodio"}],"id":"014eeaa8-bec3-43f0-ad1c-49ac7c023965"},{"location":{"line":37,"column":7},"cells":[{"location":{"line":37,"column":8},"value":"Unsuccessfully"},{"location":{"line":37,"column":45},"value":"valid"},{"location":{"line":37,"column":61},"value":"qstudio22"},{"location":{"line":37,"column":71},"value":"Invalid_Username"},{"location":{"line":37,"column":88},"value":"valid_Password"},{"location":{"line":37,"column":112},"value":".Login__header"},{"location":{"line":37,"column":130},"value":"Welcome to Qustodio"}],"id":"fcaff6e9-3dc5-4a2e-bc88-63928ff815a0"},{"location":{"line":38,"column":7},"cells":[{"location":{"line":38,"column":8},"value":"Unsuccessfully"},{"location":{"line":38,"column":37},"value":"softwareqaeng@gmail.com"},{"location":{"line":38,"column":62},"value":"invalid"},{"location":{"line":38,"column":71},"value":"Valid_Username"},{"location":{"line":38,"column":88},"value":"Invalid_Password"},{"location":{"line":38,"column":112},"value":".Login__header"},{"location":{"line":38,"column":130},"value":"Welcome to Qustodio"}],"id":"cba08c5b-48d4-472a-b92f-ce6985a861e9"},{"location":{"line":39,"column":7},"cells":[{"location":{"line":39,"column":8},"value":"Unsuccessfully"},{"location":{"line":39,"column":60}},{"location":{"line":39,"column":70}},{"location":{"line":39,"column":74},"value":"Empty"},{"location":{"line":39,"column":91},"value":"Empty"},{"location":{"line":39,"column":112},"value":".Login__header"},{"location":{"line":39,"column":130},"value":"Welcome to Qustodio"}],"id":"ec4f38e1-f241-4c6f-8d8b-15b3237811fa"}],"id":"5d7bcf5c-b8e5-4cbb-822a-b3a1ea80af33"}],"id":"7d29b64d-fd9a-487a-a003-71e8b79d9fbe"}},{"scenario":{"location":{"line":41,"column":3},"keyword":"Scenario Outline","name":"Login screen has username, password \u0026 Login fields present","steps":[{"location":{"line":42,"column":5},"keyword":"When ","text":"User waits on element \".Login__logo\" for 10000ms to be visible","id":"9b7e08c6-a54f-4b0b-a563-14116cf5058a"},{"location":{"line":43,"column":5},"keyword":"Then ","text":"User has \"\u003cfield\u003e\" visible","id":"85efa78a-5212-4a74-8152-9682a51d7967"}],"examples":[{"location":{"line":45,"column":5},"keyword":"Examples","tableHeader":{"location":{"line":46,"column":7},"cells":[{"location":{"line":46,"column":10},"value":"field"}],"id":"a0956c4a-0f4e-4ead-b626-1ecd3935d81d"},"tableBody":[{"location":{"line":47,"column":7},"cells":[{"location":{"line":47,"column":10},"value":"username"}],"id":"e5e38c40-74ef-4919-a8ae-2a70f1bede00"},{"location":{"line":48,"column":7},"cells":[{"location":{"line":48,"column":11},"value":"password"}],"id":"b06528e4-1629-4b84-9f0d-6f425d09c0b8"}],"id":"fa3c57e6-388e-45ce-b406-73f49a66a446"}],"id":"c7f9d2df-5d2d-476c-b173-d853ac798349"}},{"scenario":{"location":{"line":50,"column":3},"keyword":"Scenario","name":"Login screen has Login button present","steps":[{"location":{"line":51,"column":5},"keyword":"When ","text":"User waits on element \".Login__logo\" for 10000ms to be visible","id":"6d0fe461-b30d-4c66-ac6e-1c866624ffd6"},{"location":{"line":52,"column":5},"keyword":"Then ","text":"User expect that element \"login\" does exist on the page","id":"2adea359-4b06-4646-bc47-f7b1dd7db277"}],"id":"8f6ec245-4723-44f8-ab33-5153073b1f03"}}]},"comments":[{"location":{"line":16,"column":1},"text":"#    Please enter correct username and password"}]}},{"pickle":{"id":"d3f1642c-1f60-42b5-8dfa-b30e875e3e86","uri":"file:///D:/Workspace/java/Qstodio/src/test/resources/Feature/login.feature","name":"Load login page and verify recover password link","language":"en","steps":[{"text":"Web Browser is open","id":"5ce36c5e-ceda-4bce-96b5-a45321a032c5","astNodeIds":["5e89e7dd-f80d-48fc-9494-5e883f742b1d"]},{"text":"User opens the url \"family.qustodio.com/parents-app\"","id":"6800d250-8a1c-491f-b1f0-de01c98d2970","astNodeIds":["a81fa27f-78bf-429d-8c1d-96b1d1edc015"]},{"text":"User waits on element \".Login__logo\" for 10000ms to be visible","id":"778e8c2b-8839-4d3f-b09d-6db792505613","astNodeIds":["da21776f-bbb2-4655-b8cd-fcbf80e1e607"]},{"text":"User expect that element \"login\" does exist on the page","id":"cae43e98-e94e-4bff-97c0-119a8e00fed5","astNodeIds":["9dbd02f9-12e6-4592-90e8-68d9f9bd6c6a"]},{"text":"User click on the element \".Login__passwordLink\"","id":"3c36022d-b3ae-4056-ae13-8f6cafe923c0","astNodeIds":["88c59ff8-775f-4c00-96b0-180021a88857"]},{"text":"User waits on element \".c-btn c-btn--block c-btn--brand js-form-button\" for 10000ms to be visible","id":"60554c37-6e31-4a95-a995-0bc5455aded1","astNodeIds":["573f91a7-f7cc-4b67-90c8-bfdbf0247dcc"]},{"text":"User expect that element \".c-btn c-btn--block c-btn--brand js-form-button\" matches the text \"Recover password\"","id":"d754797e-62e0-4cac-8293-7cb6b18de13e","astNodeIds":["fda32d75-5aa1-4e57-907d-4b61b0b3295a"]}],"tags":[{"name":"@Functionality","astNodeId":"f6b5e5c1-7a75-484d-899e-ebbb2ea4e8e7"}],"astNodeIds":["d2ffbbcb-4767-4a6b-88ea-5094ffafb994"]}},{"pickle":{"id":"7ab6a38f-b3f7-4f45-86e0-92bd78f69061","uri":"file:///D:/Workspace/java/Qstodio/src/test/resources/Feature/login.feature","name":"Login with a valid user","language":"en","steps":[{"text":"Web Browser is open","id":"e262554c-41aa-4697-a0b2-6afef9e952c4","astNodeIds":["5e89e7dd-f80d-48fc-9494-5e883f742b1d"]},{"text":"User opens the url \"family.qustodio.com/parents-app\"","id":"9d52919d-56fe-41e9-814d-74d32d60b470","astNodeIds":["a81fa27f-78bf-429d-8c1d-96b1d1edc015"]},{"text":"User expect that element \"login\" does exist on the page","id":"06de44f9-e718-4eca-9399-e709bbb2aa8f","astNodeIds":["399ba73e-3735-41f7-b2e9-71b454039a1f"]},{"text":"User set \"navaleshweta@ymail.com\" to the inputfield \"username\"","id":"e6dec880-fb19-40d0-bd74-0d383d727546","astNodeIds":["61cc5291-e849-41a7-be19-1e8c02777ba1"]},{"text":"User set \"qstudio22\" to the inputfield \"password\"","id":"4e058c8e-807d-4763-bb28-ce4ce52a4d8e","astNodeIds":["28940152-871b-4e5e-91cf-f3b6475ddeba"]},{"text":"User click on the element \".Login__button--container button\"","id":"274d9a7b-59fc-4f6c-9b62-8832ef3a504e","astNodeIds":["02b19fb8-9817-42b3-9261-5db6fc3e56ba"]},{"text":"User waits on element \".Header__title\" for 10000ms to be visible","id":"566fb59c-e7bd-4a06-a3c0-73f15a454263","astNodeIds":["f7af1240-2d20-4d40-b2c3-8d1f11175d1a"]},{"text":"User expect that element \".Header__title\" matches the text \"Your Family\"","id":"7513e347-8ee1-4c23-8aeb-d9bf252d5b00","astNodeIds":["5a22047d-47f9-498c-b85f-9e6a2a018d48"]}],"tags":[{"name":"@Functionality","astNodeId":"f6b5e5c1-7a75-484d-899e-ebbb2ea4e8e7"}],"astNodeIds":["9dfc94f6-b20e-48df-820a-b5cb77ced50f"]}},{"pickle":{"id":"60064395-07fe-4667-b78d-f96fc1353ccc","uri":"file:///D:/Workspace/java/Qstodio/src/test/resources/Feature/login.feature","name":"Login is \u003cSuccessful/Unsuccessful\u003e with Valid_Username \u0026 Valid_Password","language":"en","steps":[{"text":"Web Browser is open","id":"96942bf4-018e-49d3-95b3-0a7a114a0161","astNodeIds":["5e89e7dd-f80d-48fc-9494-5e883f742b1d"]},{"text":"User opens the url \"family.qustodio.com/parents-app\"","id":"ff8206f8-785c-4fb0-868a-5ab6afca3817","astNodeIds":["a81fa27f-78bf-429d-8c1d-96b1d1edc015"]},{"text":"User set \"navaleshweta@ymail.com\" to the inputfield \"username\"","id":"6b2cdaf1-c21d-4741-8ae5-7af49d44153a","astNodeIds":["6c02a61b-af14-4789-89df-17e2e1fda9ea","779970f8-ac1b-4dea-a835-0606eac5c210"]},{"text":"User set \"qstudio22\" to the inputfield \"password\"","id":"8a4fedfb-78c7-46e2-b704-76e262d69204","astNodeIds":["3d39d26a-2ec8-43e2-8525-ec21a516b666","779970f8-ac1b-4dea-a835-0606eac5c210"]},{"text":"User click on the element \".Login__button--container button\"","id":"6aacaee2-b5fc-430b-bea6-457511192013","astNodeIds":["dd588426-db5f-46af-a398-5212c95cdf9a","779970f8-ac1b-4dea-a835-0606eac5c210"]},{"text":"User is  able to login \"Successfully\"","id":"7e574b5f-090a-4637-af90-8be9b074a43c","astNodeIds":["15daca65-642d-42c1-98f6-0e4284176580","779970f8-ac1b-4dea-a835-0606eac5c210"]},{"text":"User waits on element \".Header__title\" for 10000ms to be visible","id":"3f6860ae-c062-4b72-894f-72fba6060bcf","astNodeIds":["64dfecec-6fa5-400c-ad50-f8ee720e81ef","779970f8-ac1b-4dea-a835-0606eac5c210"]},{"text":"User expect that element \".Header__title\" matches the text \"Your Family\"","id":"baa36ec8-35ed-4eb8-b333-797b800a7866","astNodeIds":["10e3311c-b968-4f2c-9acc-5333cc0bc7fd","779970f8-ac1b-4dea-a835-0606eac5c210"]}],"tags":[{"name":"@Functionality","astNodeId":"f6b5e5c1-7a75-484d-899e-ebbb2ea4e8e7"}],"astNodeIds":["7d29b64d-fd9a-487a-a003-71e8b79d9fbe","779970f8-ac1b-4dea-a835-0606eac5c210"]}},{"pickle":{"id":"4b6833d0-f3cd-46d3-b260-f1b91c036389","uri":"file:///D:/Workspace/java/Qstodio/src/test/resources/Feature/login.feature","name":"Login is \u003cSuccessful/Unsuccessful\u003e with Invalid_Username \u0026 Invalid_Password","language":"en","steps":[{"text":"Web Browser is open","id":"9c90ed1b-c3b0-41ec-888c-23962fda0604","astNodeIds":["5e89e7dd-f80d-48fc-9494-5e883f742b1d"]},{"text":"User opens the url \"family.qustodio.com/parents-app\"","id":"1f7abcc7-d1a5-4b6e-a8f5-4a1252c57ed6","astNodeIds":["a81fa27f-78bf-429d-8c1d-96b1d1edc015"]},{"text":"User set \"invalid\" to the inputfield \"username\"","id":"eb106769-5bb4-45b5-b511-9b78121c2ed6","astNodeIds":["6c02a61b-af14-4789-89df-17e2e1fda9ea","014eeaa8-bec3-43f0-ad1c-49ac7c023965"]},{"text":"User set \"invalid\" to the inputfield \"password\"","id":"09dcb27a-2223-461c-aa0f-d3b3ad6326d1","astNodeIds":["3d39d26a-2ec8-43e2-8525-ec21a516b666","014eeaa8-bec3-43f0-ad1c-49ac7c023965"]},{"text":"User click on the element \".Login__button--container button\"","id":"3b1619e7-103b-425c-afce-7efc86f4ef9b","astNodeIds":["dd588426-db5f-46af-a398-5212c95cdf9a","014eeaa8-bec3-43f0-ad1c-49ac7c023965"]},{"text":"User is  able to login \"Unsuccessfully\"","id":"f941bd23-9e4d-43aa-a7f7-2b87de2c6eaa","astNodeIds":["15daca65-642d-42c1-98f6-0e4284176580","014eeaa8-bec3-43f0-ad1c-49ac7c023965"]},{"text":"User waits on element \".Login__header\" for 10000ms to be visible","id":"1707bf09-af93-4054-8ad2-ee64ee5d896f","astNodeIds":["64dfecec-6fa5-400c-ad50-f8ee720e81ef","014eeaa8-bec3-43f0-ad1c-49ac7c023965"]},{"text":"User expect that element \".Login__header\" matches the text \"Welcome to Qustodio\"","id":"36a5a3b8-29d9-4db2-a4e1-8089975c5f51","astNodeIds":["10e3311c-b968-4f2c-9acc-5333cc0bc7fd","014eeaa8-bec3-43f0-ad1c-49ac7c023965"]}],"tags":[{"name":"@Functionality","astNodeId":"f6b5e5c1-7a75-484d-899e-ebbb2ea4e8e7"}],"astNodeIds":["7d29b64d-fd9a-487a-a003-71e8b79d9fbe","014eeaa8-bec3-43f0-ad1c-49ac7c023965"]}},{"pickle":{"id":"649db8c9-7e09-4161-8fd9-49223297818e","uri":"file:///D:/Workspace/java/Qstodio/src/test/resources/Feature/login.feature","name":"Login is \u003cSuccessful/Unsuccessful\u003e with Invalid_Username \u0026 valid_Password","language":"en","steps":[{"text":"Web Browser is open","id":"b7520615-f2db-4bb3-8924-c282f549c9e1","astNodeIds":["5e89e7dd-f80d-48fc-9494-5e883f742b1d"]},{"text":"User opens the url \"family.qustodio.com/parents-app\"","id":"6244d3f7-4cdd-48fc-a7dc-10c8e6d00167","astNodeIds":["a81fa27f-78bf-429d-8c1d-96b1d1edc015"]},{"text":"User set \"valid\" to the inputfield \"username\"","id":"ccbb2b12-4e30-458b-b5c6-04ab78bd7516","astNodeIds":["6c02a61b-af14-4789-89df-17e2e1fda9ea","fcaff6e9-3dc5-4a2e-bc88-63928ff815a0"]},{"text":"User set \"qstudio22\" to the inputfield \"password\"","id":"7d226d5d-ca44-4d25-b633-0822a33c063a","astNodeIds":["3d39d26a-2ec8-43e2-8525-ec21a516b666","fcaff6e9-3dc5-4a2e-bc88-63928ff815a0"]},{"text":"User click on the element \".Login__button--container button\"","id":"671a6fb7-d053-4694-b650-4dc964e2e7d8","astNodeIds":["dd588426-db5f-46af-a398-5212c95cdf9a","fcaff6e9-3dc5-4a2e-bc88-63928ff815a0"]},{"text":"User is  able to login \"Unsuccessfully\"","id":"ab8e8109-c9e0-4900-b486-ff9ecfc88fcb","astNodeIds":["15daca65-642d-42c1-98f6-0e4284176580","fcaff6e9-3dc5-4a2e-bc88-63928ff815a0"]},{"text":"User waits on element \".Login__header\" for 10000ms to be visible","id":"1fc35cd0-6537-4ee5-b508-840bcdacb535","astNodeIds":["64dfecec-6fa5-400c-ad50-f8ee720e81ef","fcaff6e9-3dc5-4a2e-bc88-63928ff815a0"]},{"text":"User expect that element \".Login__header\" matches the text \"Welcome to Qustodio\"","id":"3a944406-946f-4526-8340-84ad864fe4b4","astNodeIds":["10e3311c-b968-4f2c-9acc-5333cc0bc7fd","fcaff6e9-3dc5-4a2e-bc88-63928ff815a0"]}],"tags":[{"name":"@Functionality","astNodeId":"f6b5e5c1-7a75-484d-899e-ebbb2ea4e8e7"}],"astNodeIds":["7d29b64d-fd9a-487a-a003-71e8b79d9fbe","fcaff6e9-3dc5-4a2e-bc88-63928ff815a0"]}},{"pickle":{"id":"52e03c8a-4acd-4cff-acce-1d1db79034e4","uri":"file:///D:/Workspace/java/Qstodio/src/test/resources/Feature/login.feature","name":"Login is \u003cSuccessful/Unsuccessful\u003e with Valid_Username \u0026 Invalid_Password","language":"en","steps":[{"text":"Web Browser is open","id":"cc97d21f-8c83-466f-9a3c-a3efd9f815bc","astNodeIds":["5e89e7dd-f80d-48fc-9494-5e883f742b1d"]},{"text":"User opens the url \"family.qustodio.com/parents-app\"","id":"41d8cded-e8c4-4311-894c-3bbc87bcd10d","astNodeIds":["a81fa27f-78bf-429d-8c1d-96b1d1edc015"]},{"text":"User set \"softwareqaeng@gmail.com\" to the inputfield \"username\"","id":"50c47445-4fdb-492a-8060-3974c03f9725","astNodeIds":["6c02a61b-af14-4789-89df-17e2e1fda9ea","cba08c5b-48d4-472a-b92f-ce6985a861e9"]},{"text":"User set \"invalid\" to the inputfield \"password\"","id":"63a6dadc-6ff1-4fd4-b131-7a50b83ba29d","astNodeIds":["3d39d26a-2ec8-43e2-8525-ec21a516b666","cba08c5b-48d4-472a-b92f-ce6985a861e9"]},{"text":"User click on the element \".Login__button--container button\"","id":"d5adad98-0ebe-4ea0-8236-4c9eaacf80d2","astNodeIds":["dd588426-db5f-46af-a398-5212c95cdf9a","cba08c5b-48d4-472a-b92f-ce6985a861e9"]},{"text":"User is  able to login \"Unsuccessfully\"","id":"d04127bd-7927-4dc1-912e-8f27196970e8","astNodeIds":["15daca65-642d-42c1-98f6-0e4284176580","cba08c5b-48d4-472a-b92f-ce6985a861e9"]},{"text":"User waits on element \".Login__header\" for 10000ms to be visible","id":"aa7cd9c2-0236-4432-af01-b1bc6c4ede60","astNodeIds":["64dfecec-6fa5-400c-ad50-f8ee720e81ef","cba08c5b-48d4-472a-b92f-ce6985a861e9"]},{"text":"User expect that element \".Login__header\" matches the text \"Welcome to Qustodio\"","id":"d4cf2890-ab51-4770-8e67-314bd51a8c39","astNodeIds":["10e3311c-b968-4f2c-9acc-5333cc0bc7fd","cba08c5b-48d4-472a-b92f-ce6985a861e9"]}],"tags":[{"name":"@Functionality","astNodeId":"f6b5e5c1-7a75-484d-899e-ebbb2ea4e8e7"}],"astNodeIds":["7d29b64d-fd9a-487a-a003-71e8b79d9fbe","cba08c5b-48d4-472a-b92f-ce6985a861e9"]}},{"pickle":{"id":"6d0fb2ff-d1bb-4b9c-b8ef-400ac12febc4","uri":"file:///D:/Workspace/java/Qstodio/src/test/resources/Feature/login.feature","name":"Login is \u003cSuccessful/Unsuccessful\u003e with Empty \u0026 Empty","language":"en","steps":[{"text":"Web Browser is open","id":"ec343a51-0cd3-434d-99dc-d4140e8bf931","astNodeIds":["5e89e7dd-f80d-48fc-9494-5e883f742b1d"]},{"text":"User opens the url \"family.qustodio.com/parents-app\"","id":"46159dad-e7bc-4755-998e-d743a842d75a","astNodeIds":["a81fa27f-78bf-429d-8c1d-96b1d1edc015"]},{"text":"User set \"\" to the inputfield \"username\"","id":"2f8a5bac-c856-4547-a156-465478ecf265","astNodeIds":["6c02a61b-af14-4789-89df-17e2e1fda9ea","ec4f38e1-f241-4c6f-8d8b-15b3237811fa"]},{"text":"User set \"\" to the inputfield \"password\"","id":"2296ad29-fec4-45ee-9516-d7c5f8823e22","astNodeIds":["3d39d26a-2ec8-43e2-8525-ec21a516b666","ec4f38e1-f241-4c6f-8d8b-15b3237811fa"]},{"text":"User click on the element \".Login__button--container button\"","id":"3c414843-0226-4769-b048-9af82189b465","astNodeIds":["dd588426-db5f-46af-a398-5212c95cdf9a","ec4f38e1-f241-4c6f-8d8b-15b3237811fa"]},{"text":"User is  able to login \"Unsuccessfully\"","id":"e0e52d17-84e7-467e-9518-e89507598222","astNodeIds":["15daca65-642d-42c1-98f6-0e4284176580","ec4f38e1-f241-4c6f-8d8b-15b3237811fa"]},{"text":"User waits on element \".Login__header\" for 10000ms to be visible","id":"b9a70072-2a8e-4957-960c-81ddcb7033a3","astNodeIds":["64dfecec-6fa5-400c-ad50-f8ee720e81ef","ec4f38e1-f241-4c6f-8d8b-15b3237811fa"]},{"text":"User expect that element \".Login__header\" matches the text \"Welcome to Qustodio\"","id":"6096a567-37d9-492d-8b88-8cc60ad05f4e","astNodeIds":["10e3311c-b968-4f2c-9acc-5333cc0bc7fd","ec4f38e1-f241-4c6f-8d8b-15b3237811fa"]}],"tags":[{"name":"@Functionality","astNodeId":"f6b5e5c1-7a75-484d-899e-ebbb2ea4e8e7"}],"astNodeIds":["7d29b64d-fd9a-487a-a003-71e8b79d9fbe","ec4f38e1-f241-4c6f-8d8b-15b3237811fa"]}},{"pickle":{"id":"d2f35239-5e29-4dda-a3c2-daee6d709253","uri":"file:///D:/Workspace/java/Qstodio/src/test/resources/Feature/login.feature","name":"Login screen has username, password \u0026 Login fields present","language":"en","steps":[{"text":"Web Browser is open","id":"26811eda-de78-4fdc-875a-405862d3b180","astNodeIds":["5e89e7dd-f80d-48fc-9494-5e883f742b1d"]},{"text":"User opens the url \"family.qustodio.com/parents-app\"","id":"3f80b926-5470-4686-8be3-9f5b3fa91e0c","astNodeIds":["a81fa27f-78bf-429d-8c1d-96b1d1edc015"]},{"text":"User waits on element \".Login__logo\" for 10000ms to be visible","id":"4804ba33-1d6a-41da-8b4c-ba973f40aea2","astNodeIds":["9b7e08c6-a54f-4b0b-a563-14116cf5058a","e5e38c40-74ef-4919-a8ae-2a70f1bede00"]},{"text":"User has \"username\" visible","id":"e96c1f39-6975-4351-a2d2-2375497f01c7","astNodeIds":["85efa78a-5212-4a74-8152-9682a51d7967","e5e38c40-74ef-4919-a8ae-2a70f1bede00"]}],"tags":[{"name":"@Functionality","astNodeId":"f6b5e5c1-7a75-484d-899e-ebbb2ea4e8e7"}],"astNodeIds":["c7f9d2df-5d2d-476c-b173-d853ac798349","e5e38c40-74ef-4919-a8ae-2a70f1bede00"]}},{"pickle":{"id":"ecc15041-b683-4d50-bbea-d3a9c7a2eb9e","uri":"file:///D:/Workspace/java/Qstodio/src/test/resources/Feature/login.feature","name":"Login screen has username, password \u0026 Login fields present","language":"en","steps":[{"text":"Web Browser is open","id":"2b5d2fb9-c3ad-497c-b72e-d64fdb6dadc4","astNodeIds":["5e89e7dd-f80d-48fc-9494-5e883f742b1d"]},{"text":"User opens the url \"family.qustodio.com/parents-app\"","id":"37407f45-5891-4408-b724-a0b5af098421","astNodeIds":["a81fa27f-78bf-429d-8c1d-96b1d1edc015"]},{"text":"User waits on element \".Login__logo\" for 10000ms to be visible","id":"6adc1590-c4d5-4c22-827c-200780c33ae0","astNodeIds":["9b7e08c6-a54f-4b0b-a563-14116cf5058a","b06528e4-1629-4b84-9f0d-6f425d09c0b8"]},{"text":"User has \"password\" visible","id":"288d8c0c-a7f5-48ec-9be1-c1c0399a53bf","astNodeIds":["85efa78a-5212-4a74-8152-9682a51d7967","b06528e4-1629-4b84-9f0d-6f425d09c0b8"]}],"tags":[{"name":"@Functionality","astNodeId":"f6b5e5c1-7a75-484d-899e-ebbb2ea4e8e7"}],"astNodeIds":["c7f9d2df-5d2d-476c-b173-d853ac798349","b06528e4-1629-4b84-9f0d-6f425d09c0b8"]}},{"pickle":{"id":"19bbf80f-1525-437b-bd91-5b274fb8435b","uri":"file:///D:/Workspace/java/Qstodio/src/test/resources/Feature/login.feature","name":"Login screen has Login button present","language":"en","steps":[{"text":"Web Browser is open","id":"7121758a-446b-4686-935d-3fbc3ff4d321","astNodeIds":["5e89e7dd-f80d-48fc-9494-5e883f742b1d"]},{"text":"User opens the url \"family.qustodio.com/parents-app\"","id":"81940ace-eb47-4c83-a1df-e637adb3eaae","astNodeIds":["a81fa27f-78bf-429d-8c1d-96b1d1edc015"]},{"text":"User waits on element \".Login__logo\" for 10000ms to be visible","id":"959ef1ab-4433-44ac-ad23-1ca4c1ee0ad3","astNodeIds":["6d0fe461-b30d-4c66-ac6e-1c866624ffd6"]},{"text":"User expect that element \"login\" does exist on the page","id":"4d846ddc-98ec-4202-a015-601e346082b7","astNodeIds":["2adea359-4b06-4646-bc47-f7b1dd7db277"]}],"tags":[{"name":"@Functionality","astNodeId":"f6b5e5c1-7a75-484d-899e-ebbb2ea4e8e7"}],"astNodeIds":["8f6ec245-4723-44f8-ab33-5153073b1f03"]}},{"stepDefinition":{"id":"6ac11ef7-82c3-40fa-9369-e2df2a3e4e97","pattern":{"source":"^User expect that element \\\"([^\\\"]*)\\\" matches the text \\\"([^\\\"]*)\\\"$","type":"REGULAR_EXPRESSION"},"sourceReference":{"javaMethod":{"className":"StepDefinitions.LoginSteps","methodName":"userExpectThatElementMatchesTheText","methodParameterTypes":["java.lang.String","java.lang.String"]}}}},{"stepDefinition":{"id":"c0ed7a82-8327-4366-aa62-8988c9854127","pattern":{"source":"^User opens the url \\\"([^\\\"]*)\\\"$","type":"REGULAR_EXPRESSION"},"sourceReference":{"javaMethod":{"className":"StepDefinitions.LoginSteps","methodName":"userOpensTheUrl","methodParameterTypes":["java.lang.String"]}}}},{"stepDefinition":{"id":"50e90b23-c2a0-480b-a112-15ba6ad479a4","pattern":{"source":"^Web Browser is open$","type":"REGULAR_EXPRESSION"},"sourceReference":{"javaMethod":{"className":"StepDefinitions.LoginSteps","methodName":"webBrowserIsOpen"}}}},{"stepDefinition":{"id":"0fdbe79f-5821-47ed-a550-5b2b6ea61e71","pattern":{"source":"User is  able to login {string}"},"sourceReference":{"javaMethod":{"className":"StepDefinitions.LoginSteps","methodName":"userIsAbleToLogin","methodParameterTypes":["java.lang.String"]}}}},{"stepDefinition":{"id":"4aef20df-24d2-4e20-a093-989dfc3073a4","pattern":{"source":"^there is an element \\\"([^\\\"]*)\\\" on the page$","type":"REGULAR_EXPRESSION"},"sourceReference":{"javaMethod":{"className":"StepDefinitions.LoginSteps","methodName":"thereIsAnElementOnThePage","methodParameterTypes":["java.lang.String"]}}}},{"stepDefinition":{"id":"1828d557-75aa-4b00-8dad-725e5c97efe4","pattern":{"source":"^User expect that element \\\"([^\\\"]*)\\\" does exist on the page$","type":"REGULAR_EXPRESSION"},"sourceReference":{"javaMethod":{"className":"StepDefinitions.LoginSteps","methodName":"userExpectThatElementDoesExist","methodParameterTypes":["java.lang.String"]}}}},{"stepDefinition":{"id":"b1f27a39-821d-43d6-abb6-72e4ad8772bc","pattern":{"source":"^User click on the element \\\"([^\\\"]*)\\\"$","type":"REGULAR_EXPRESSION"},"sourceReference":{"javaMethod":{"className":"StepDefinitions.LoginSteps","methodName":"userClickOnTheElement","methodParameterTypes":["java.lang.String"]}}}},{"stepDefinition":{"id":"c54d1877-897e-46b4-9301-94bf19dfdd46","pattern":{"source":"^User has \\\"([^\\\"]*)\\\" visible$","type":"REGULAR_EXPRESSION"},"sourceReference":{"javaMethod":{"className":"StepDefinitions.LoginSteps","methodName":"userHasFieldVisible","methodParameterTypes":["java.lang.String"]}}}},{"stepDefinition":{"id":"a15bdccc-1419-4505-8bce-e454e954bfab","pattern":{"source":"^User waits on element \\\"([^\\\"]*)\\\" for 10000ms to be visible$","type":"REGULAR_EXPRESSION"},"sourceReference":{"javaMethod":{"className":"StepDefinitions.LoginSteps","methodName":"userWaitsOnElementForToBeVisible","methodParameterTypes":["java.lang.String"]}}}},{"stepDefinition":{"id":"6fa9a4ee-3a42-4373-8146-b09647000d09","pattern":{"source":"^User set \\\"([^\\\"]*)\\\" to the inputfield \\\"([^\\\"]*)\\\"$","type":"REGULAR_EXPRESSION"},"sourceReference":{"javaMethod":{"className":"StepDefinitions.LoginSteps","methodName":"userSetToTheInputfield","methodParameterTypes":["java.lang.String","java.lang.String"]}}}},{"hook":{"id":"ec788eb9-97ed-46e8-b394-d369cdb5afd4","sourceReference":{"javaMethod":{"className":"StepDefinitions.LoginSteps","methodName":"cleanUp"}}}},{"testCase":{"id":"14b0bfd9-8b97-4293-9bc5-94daeee006d5","pickleId":"6bde4b4e-7cfb-45a8-ade8-5987fcf43873","testSteps":[{"id":"806e8b8c-b633-469b-873b-3af22b42fe7a","pickleStepId":"a2868270-682d-40ce-8a13-edd38b794cf6","stepDefinitionIds":["50e90b23-c2a0-480b-a112-15ba6ad479a4"],"stepMatchArgumentsLists":[{}]},{"id":"5bc1efef-d294-409f-9e88-775af727068e","pickleStepId":"4ede8f2f-2d74-48b8-8f00-291df408fb0e","stepDefinitionIds":["c0ed7a82-8327-4366-aa62-8988c9854127"],"stepMatchArgumentsLists":[{"stepMatchArguments":[{"parameterTypeName":"anonymous","group":{"start":20,"value":"family.qustodio.com/parents-app"}}]}]},{"id":"56e8e7ee-3525-44b1-bf8b-7b0f344ce554","pickleStepId":"c4b65b56-0906-4d64-8106-08b2e72444bb","stepDefinitionIds":["6fa9a4ee-3a42-4373-8146-b09647000d09"],"stepMatchArgumentsLists":[{"stepMatchArguments":[{"parameterTypeName":"anonymous","group":{"start":10,"value":"navaleshweta@ymail.com"}},{"parameterTypeName":"anonymous","group":{"start":53,"value":"username"}}]}]},{"id":"70b8d9e8-cc17-4494-adbb-49830402d28b","pickleStepId":"f9fdd210-974d-4792-b8dd-70d72a1af5ba","stepDefinitionIds":["6fa9a4ee-3a42-4373-8146-b09647000d09"],"stepMatchArgumentsLists":[{"stepMatchArguments":[{"parameterTypeName":"anonymous","group":{"start":10,"value":"qstudio22"}},{"parameterTypeName":"anonymous","group":{"start":40,"value":"password"}}]}]},{"id":"0a557245-04cf-4ca2-a4a8-d4df376716f1","pickleStepId":"748d5c5a-edd4-4f2b-8a20-fdb1fd8a7673","stepDefinitionIds":["b1f27a39-821d-43d6-abb6-72e4ad8772bc"],"stepMatchArgumentsLists":[{"stepMatchArguments":[{"parameterTypeName":"anonymous","group":{"start":27,"value":".Login__button--container button"}}]}]},{"id":"f2b780f6-229b-4db9-b658-d45c6a87b251","pickleStepId":"ed32df51-5901-4e7a-8116-89b307aa21ed","stepDefinitionIds":["4aef20df-24d2-4e20-a093-989dfc3073a4"],"stepMatchArgumentsLists":[{"stepMatchArguments":[{"parameterTypeName":"anonymous","group":{"start":21,"value":".Header"}}]}]},{"id":"795e0920-a826-49a0-9989-61ad10347d2c","pickleStepId":"cc60cdba-4dba-41b7-a1e9-ea9bb911ad43","stepDefinitionIds":["a15bdccc-1419-4505-8bce-e454e954bfab"],"stepMatchArgumentsLists":[{"stepMatchArguments":[{"parameterTypeName":"anonymous","group":{"start":23,"value":".Header__title"}}]}]},{"id":"bc0c1437-2dc1-42a8-af7c-030ffefa4712","pickleStepId":"0673e0dd-8172-4e07-b6a1-b669fd2335e4","stepDefinitionIds":["6ac11ef7-82c3-40fa-9369-e2df2a3e4e97"],"stepMatchArgumentsLists":[{"stepMatchArguments":[{"parameterTypeName":"anonymous","group":{"start":26,"value":".Header__title"}},{"parameterTypeName":"anonymous","group":{"start":60,"value":"Your Family"}}]}]},{"id":"cf89d37a-d7aa-4e73-abde-895a8bef7385","pickleStepId":"a8664c8e-5d39-4984-9e0c-14b3be3891ed","stepDefinitionIds":["b1f27a39-821d-43d6-abb6-72e4ad8772bc"],"stepMatchArgumentsLists":[{"stepMatchArguments":[{"parameterTypeName":"anonymous","group":{"start":27,"value":"#root \u003e div \u003e div \u003e div \u003e div.DesktopLayout__content-container \u003e div.DesktopLayout__sidebar \u003e div \u003e div \u003e ul \u003e li:nth-child(2)"}}]}]},{"id":"cc3a122b-fd98-4d68-8a9b-83d4b6b7fcfa","pickleStepId":"073ff711-b4fc-4f6d-9ea6-8dbcaaa42ac2","stepDefinitionIds":["6ac11ef7-82c3-40fa-9369-e2df2a3e4e97"],"stepMatchArgumentsLists":[{"stepMatchArguments":[{"parameterTypeName":"anonymous","group":{"start":26,"value":"#root \u003e div \u003e div \u003e div \u003e div.DesktopLayout__content-container \u003e div.DesktopLayout__content \u003e div \u003e div.Header__wrapper \u003e div \u003e div.Header__title"}},{"parameterTypeName":"anonymous","group":{"start":191,"value":"Your devices"}}]}]},{"id":"1f329c57-9b1a-47f8-94a1-7b2f5c6f2dc6","pickleStepId":"00ac379c-3e3e-4616-af63-d915cefd2115","stepDefinitionIds":["b1f27a39-821d-43d6-abb6-72e4ad8772bc"],"stepMatchArgumentsLists":[{"stepMatchArguments":[{"parameterTypeName":"anonymous","group":{"start":27,"value":"#root \u003e div \u003e div \u003e div \u003e div.DesktopLayout__content-container \u003e div.DesktopLayout__sidebar \u003e div \u003e div \u003e ul \u003e li:nth-child(3)"}}]}]},{"id":"e9c57efe-12c1-45d4-8469-8eb94dc24de3","pickleStepId":"a67a7c15-5355-433b-b9ae-4a29de6c6595","stepDefinitionIds":["6ac11ef7-82c3-40fa-9369-e2df2a3e4e97"],"stepMatchArgumentsLists":[{"stepMatchArguments":[{"parameterTypeName":"anonymous","group":{"start":26,"value":"#root \u003e div \u003e div \u003e div \u003e div.DesktopLayout__content-container \u003e div.DesktopLayout__content \u003e div \u003e div.Header__wrapper \u003e div \u003e div.Header__title"}},{"parameterTypeName":"anonymous","group":{"start":191,"value":"Your account"}}]}]},{"id":"ff100554-b8cd-4b38-a36c-aa07ed57fd23","hookId":"ec788eb9-97ed-46e8-b394-d369cdb5afd4"}]}},{"testCaseStarted":{"timestamp":{"seconds":"1597331017","nanos":920020800},"testCaseId":"14b0bfd9-8b97-4293-9bc5-94daeee006d5","id":"8bcc82f0-8f26-4ea7-9e08-c06d047f82e1"}},{"testStepStarted":{"timestamp":{"seconds":"1597331018","nanos":262811200},"testStepId":"806e8b8c-b633-469b-873b-3af22b42fe7a","testCaseStartedId":"8bcc82f0-8f26-4ea7-9e08-c06d047f82e1"}},{"testStepFinished":{"testStepResult":{"status":"PASSED","duration":{"seconds":"13","nanos":989475000}},"timestamp":{"seconds":"1597331032","nanos":252286200},"testStepId":"806e8b8c-b633-469b-873b-3af22b42fe7a","testCaseStartedId":"8bcc82f0-8f26-4ea7-9e08-c06d047f82e1"}},{"testStepStarted":{"timestamp":{"seconds":"1597331032","nanos":274121700},"testStepId":"5bc1efef-d294-409f-9e88-775af727068e","testCaseStartedId":"8bcc82f0-8f26-4ea7-9e08-c06d047f82e1"}},{"testStepFinished":{"testStepResult":{"status":"PASSED","duration":{"seconds":"9","nanos":746080000}},"timestamp":{"seconds":"1597331042","nanos":20201700},"testStepId":"5bc1efef-d294-409f-9e88-775af727068e","testCaseStartedId":"8bcc82f0-8f26-4ea7-9e08-c06d047f82e1"}},{"testStepStarted":{"timestamp":{"seconds":"1597331042","nanos":21200500},"testStepId":"56e8e7ee-3525-44b1-bf8b-7b0f344ce554","testCaseStartedId":"8bcc82f0-8f26-4ea7-9e08-c06d047f82e1"}},{"testStepFinished":{"testStepResult":{"status":"PASSED","duration":{"seconds":"1","nanos":250234400}},"timestamp"
